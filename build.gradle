@@ -45,9 +45,6 @@ apply from: 'generateConfig.gradle'
 
 publishing {
     publications {
-        gpr(MavenPublication) {
-            from(components.java)
-        }
         mavenJava(MavenPublication) {
             def artifactName = "${buildDir}/distributions/${project.name}-${project.version}"
             def zipArtifactName = "${artifactName}.zip"
