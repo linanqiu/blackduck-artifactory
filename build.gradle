@@ -45,7 +45,7 @@ apply from: 'generateConfig.gradle'
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        gpr(MavenPublication) {
             def artifactName = "${buildDir}/distributions/${project.name}-${project.version}"
             def zipArtifactName = "${artifactName}.zip"
             def tarArtifactName = "${artifactName}.tgz"
@@ -67,7 +67,7 @@ publishing {
 
 artifactory {
     publish {
-        defaults { publications('mavenJava') }
+        defaults { publications('gpr') }
     }
 }
 
