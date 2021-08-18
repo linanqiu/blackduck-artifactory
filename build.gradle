@@ -11,7 +11,7 @@ plugins {
     id 'java'
     id 'groovy'
     id 'org.jetbrains.kotlin.jvm' version '1.3.31'
-    id("maven-publish")
+    id 'maven-publish'
 }
 
 version = '8.0.0-SNAPSHOT'
@@ -47,6 +47,13 @@ publishing {
     publications {
         gpr(MavenPublication) {
             from(components.java)
+        }
+        mavenJava(MavenPublication) {
+            def artifactName = "${buildDir}/distributions/${project.name}-${project.version}"
+            def zipArtifactName = "${artifactName}.zip"
+            def tarArtifactName = "${artifactName}.tgz"
+            artifact(zipArtifactName)
+            artifact(tarArtifactName)
         }
     }
     repositories {
