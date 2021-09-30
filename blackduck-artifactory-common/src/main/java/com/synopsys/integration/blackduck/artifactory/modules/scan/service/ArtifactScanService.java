@@ -217,10 +217,10 @@ public class ArtifactScanService {
         Optional<String> projectName = artifactoryPropertyService.getProperty(repoKeyPath, BlackDuckArtifactoryProperty.BLACKDUCK_PROJECT_NAME);
         String finalProjectName = project;
         String finalProjectVersion = version;
-        if (projectName.isPresent()) {
-            finalProjectName = projectName.get();
-            finalProjectVersion = String.format("%s-%s", project, version);
-        }
+//         if (projectName.isPresent()) {
+//             finalProjectName = projectName.get();
+//             finalProjectVersion = String.format("%s-%s", project, version);
+//         }
 
         return new NameVersion(finalProjectName, finalProjectVersion);
     }
