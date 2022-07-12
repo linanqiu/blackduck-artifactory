@@ -421,7 +421,7 @@ private void initialize(final TriggerType triggerType) {
     final File etcDirectory = ctx.artifactoryHome.etcDir
     final File homeDirectory = ctx.artifactoryHome.homeDir
     final File pluginsDirectory = ctx.artifactoryHome.pluginsDir
-    final String thirdPartyVersion = ctx?.versionProvider?.running?.versionName?.toString()
+    final String thirdPartyVersion = null // ctx?.versionProvider?.running?.versionName?.toString() // Does not work with Artifactory 7.33.9. Artifactory seems to have removed versionProvider
     final DirectoryConfig pluginConfig = DirectoryConfig.createDefault(homeDirectory, etcDirectory, pluginsDirectory, thirdPartyVersion, propertiesFilePathOverride)
 
     pluginService = new PluginService(pluginConfig, repositories, searches)
